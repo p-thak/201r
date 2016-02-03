@@ -1,0 +1,32 @@
+img {
+	margin-top: 20px;
+}
+
+#container {
+margin-top: 30px;
+}
+
+#info {
+	margin-top: 50px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+	font-size: 1.1em;
+}
+#footer {
+	margin-top: 100px;
+	background-color: black;
+}
+#footer a {
+	color: white;
+	padding-left: 15px;
+}
+#footer a:hover {
+	color: #6699ff;
+}
+
+
+
+// remove li bullets

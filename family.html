@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <style>
+        body {
+            background: #6A3DB4;
+        }
+
+        .content {
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 15%;
+        }
+
+        .content .heading {
+            margin-right: auto;
+            margin-left: auto;
+            
+            height:30px;
+            width: 50%;
+            vertical-align: middle;
+            line-height:0px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background:gray;
+            font-size:18px;
+            font-weight:bold;
+            font-family:verdana;
+            display:block;
+            color:white;
+            display:block;
+            padding:10px;
+            border: 1px solid gray;
+            border-bottom:none;
+        }
+
+        .content .main {
+            margin-right: auto;
+            margin-left: auto;
+            background: white;
+            width: 50%;
+            vertical-align: middle;
+            overflow: hidden;
+            padding: 10px;
+            font-size: 15px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border: 1px solid gray;
+            color: #3385FF;
+        }
+
+        button:hover {
+            background: #6AB0CF;
+        }
+
+
+
+      </style>
+</head>
+<body ng-app="myApp" ng-controller="todoCtrl">
+<div class="content">
+    <div class="heading">
+        <h2>Familiy History Time</h2>
+    </div>
+    <div class="main">
+        <form ng-submit="todoAdd()" class="inputs">
+            <input type="text" ng-model="todoInput" size="25" placeholder="Person">
+            <input type="text" ng-model="todoInput1" size="25" placeholder="Father">
+            <input type="text" ng-model="todoInput2" size="25" placeholder="Mother">
+            <!--
+            <input type="submit" value="Add Family">
+        -->
+            <button ng-click="submit">Submit</button>
+        </form>
+
+        <br>
+
+        <div ng-repeat="x in todoList">
+            <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+        </div>
+
+        <p><button ng-click="remove()">Remove marked</button></p>
+    </div>
+</div>
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Clark, Scott, Lori', done:false}];
+
+    $scope.todoAdd = function() {
+        if ($scope.todoInput2.length && $scope.todoInput1.length && $scope.todoInput.length) {
+            var input = $scope.todoInput + ", " + $scope.todoInput1 + ", " + $scope.todoInput2
+            $scope.todoList.push({todoText:input, done:false});
+            $scope.todoInput = "";
+            $scope.todoInput1 = "";
+            $scope.todoInput2 = "";
+        }
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+
+</body>
+</html>

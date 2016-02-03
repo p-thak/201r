@@ -1,0 +1,140 @@
+<html>
+<head>
+	<title>What mood are you in?</title>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+	<style>
+
+	html, body, section, div {
+		height: 100%;
+	}
+
+	body {
+		color: #fff;
+
+	}
+
+	#title {
+		font-family: 'Lucida Bright', Georgia, serif;
+		font-size: 50px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 500;
+		line-height: 26.4px;
+		text-align: center;
+
+	}
+
+	#explain {
+		font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+		font-size: 24px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 500;
+		line-height: 26.4px;
+		
+
+	}
+
+	.searchBar input[type="text"] {
+		width: 50px; 
+	  	padding: 10px;
+	  	border: solid 1px #dcdcdc;
+	  	transition: box-shadow 0.3s, border 0.3s;
+	}
+
+	body > button {
+		background: #428BCA;
+	    color: #fff;
+	    font-family: Sans-serif;
+	    font-size: 20px;
+	    height: 60px;
+	    width: 150px;
+	    line-height: 60px;
+	    margin: 25px 25px;
+	    text-align: center;
+	    border: 0;
+	    transition: all 0.3s ease 0s;
+	}
+	
+	button:hover {
+		background: #6AB0CF;
+	}
+	
+
+	.container {
+		display: table;
+		width: 80%;
+		height: 80%;
+	}
+
+	div {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		width: 50%;
+		padding: 1rem;
+	}
+
+	#body {
+		text-align: center;
+		/*background-color:#eee;*/
+		-webkit-transition: all 500ms linear; 
+		border-left: 30px;
+		border-right: 30px;
+		/*border:10px solid gray;*/
+		/*padding: 20px;*/
+		background-color: #ff9e2c;
+  		position: absolute;
+ 	 	left: 0px;
+ 	 	width: 50%;
+	}
+
+
+	#body:hover{
+		border:15px solid #800;
+	}
+
+	#placeGifHere {
+		background-color: #b6701e;
+  		position: absolute;
+  		right: 0px;
+  		width: 50%;
+	}
+
+	article {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		padding: 20px;
+	}
+	
+
+
+	</style>
+</head>
+<body>
+	<!--
+	<h1 id="title">What mood are you in?</h1>
+-->
+	<section class="container">
+		<div id="body">
+			<article>
+				<h3 id="explain">Input what kind of vibes<br> you are feeling<br> to have an awesome time</h3>
+
+				<input class="searchBar" type="text" placeholder="Your mood">
+				<button>Submit</button>
+
+			</article>
+		</div>
+		<div id="placeGifHere">
+			<article>
+				<h3>Place the gifs here<h3>
+			</article>
+		</div>
+	</selection>
+</body>
+
+</html>
