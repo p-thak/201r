@@ -1,0 +1,61 @@
+	.User-list {
+	  list-style: none;
+	}
+
+	.Avatar {
+	  text-align: center;  
+	}
+
+	.Avatar img {
+	  width: 50px;
+	  height: 50px;
+	  border-radius: 50%;
+	}
+
+	.Avatar h4 {
+	  text-transform: capitalize;
+	  color: red;
+	}
+
+	body {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		background-image: url(http://33.media.tumblr.com/3c0121c7da98fd9cdbd5623784ce2f4f/tumblr_inline_nc0o0tCONl1sxudqk.gif);
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	.title {
+		height:50px;
+	    /*
+	    background:#F0F0F0;
+		
+	    border:1px solid #CCC;
+	    */
+	    width:475px;
+	    margin:0px auto;
+	    text-align: center;
+	    font-family: sans-serif;
+	    font-style: oblique;
+	    font-size: 30px;
+	    font-weight: 15%;
+	    padding: 10px;
+	}
+
+	.content {
+		background-color: #F0F0F0;
+		border: 5px solid #3B0EE8;
+		color: #3B0EE8;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 15px;
+		width: 500px;
+		border-radius: 10px;
+		margin-top: 15%;
+	}
+
+	input {
+		vertical-align: auto;
+	}
