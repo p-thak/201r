@@ -8,21 +8,26 @@
 	<script src="./javascripts/script.js"></script>
 </head>
 <body>
+ <div id='app' ng-app='app' ng-controller='mainCtrl'>
 	<h1>Flag Game</h1>
 
 	<button id="generateFlag" type="button">Generate Flag</button>
 	<div id = "flagImage">None</div>
-	<div id = "countryName">None</div>
+	<div id = "countryName">{{countryName}}</div>
 
- <div id='app' ng-app='app' ng-controller='mainCtrl'>
 
 
 <button id="startGameButton" type="button">Start New Game</button>
 
 <div id = "gameWindow">
   <div id = "flagImage">None</div>
-  <div id ="optionsDiv"></div>
-
+   <ul ng-if='flagShowing' id='optionList'>
+      <li ng-repeat='p in user' class='user'>
+        <h1>{{ p.name }}</h1>
+        <h2>{{p.highScore}}</h2>
+        <h3>{{p.currentScore}}</h3>
+      </li>
+    </ul>
 
 </div>
 
