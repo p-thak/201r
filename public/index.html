@@ -11,21 +11,14 @@
  <div id='app' ng-app='app' ng-controller='mainCtrl'>
 	<h1>Flag Game</h1>
 
-	<button id="generateFlag" type="button">Generate Flag</button>
-	<div id = "flagImage">None</div>
-	<div id = "countryName">{{countryName}}</div>
-
-
-
-<button id="startGameButton" type="button">Start New Game</button>
-
 <div id = "gameWindow">
-  <div id = "flagImage">None</div>
-   <ul ng-if='flagShowing' id='optionList'>
-      <li ng-repeat='p in user' class='user'>
-        <h1>{{ p.name }}</h1>
-        <h2>{{p.highScore}}</h2>
-        <h3>{{p.currentScore}}</h3>
+	<button id="generateFlag" type="button" ng-click = "generateFlag()">Start Game</button>
+	<div id = "flagImage"></div>
+	<!--<div id = "countryName">{{countryName}}</div>-->
+   <h2>Which Country does this Flag belong to?</h2><br>
+   <ul  id='optionList'>
+      <li ng-repeat="option in optionsList | orderBy:'+value'" class='optionsList'>
+        <button class ='optionButton' type ="button"  ng-click = "checkAnswer(option.value)">{{option.value}}</button>
       </li>
     </ul>
 

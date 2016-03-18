@@ -6,6 +6,42 @@ html, body, #app {
   font-family: helvetica;
 }
 
+h1{
+ margin:auto;
+  text-align:center; 
+
+
+}
+#gameWindow{
+  
+  margin: auto;
+  max-width: 70%;
+
+
+
+}
+#flagImage{
+  max-width: 300px;
+  margin: auto;
+
+}
+#mainImageFlag{
+ margin:auto;
+ max-width: 300px;
+
+}
+.optionButton{
+  min-width: 200 px;
+ text-align: center;
+
+
+}
+#optionList{
+    margin: auto;
+    
+
+}
+
 div, ul {
   margin: 0;
   padding: 0;

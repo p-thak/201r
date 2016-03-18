@@ -5,7 +5,6 @@ $( document ).ready(function() {
 
 
 });
-
 var app = window.angular.module('app', [])
 
 app.factory('userFetcher', userFetcher)
@@ -35,24 +34,34 @@ function userFetcher ($http) {
 function mainCtrl ($scope, userFetcher) {
 
   $scope.user = [];
-  $scope.optionsList = [];
+  $scope.optionsList = [{value:"test"}];
   $scope.flagShowing = false;
-  
+  $scope.countryName = "";
  $scope.generateOptions = function() {
- 	  $scope.optionsList = [];     
-        $scope.optionsList.push($scope.countryName);
+
+ 	$scope.optionsList = [];     
+        $scope.optionsList.push({value:$scope.countryName});
   	
         //var newOption =grabNewOption(); 
 	//console.log(newOption);
     for(var i =0; i<5; i++){	
 	grabNewOption(function(result){
-		console.log("new option: "+result);
-
-             $scope.optionsList.push(result);	
-		console.log("size of array: "+$scope.optionsList.length);	
-      	     console.log($scope.optionsList);
+		//console.log("new option: "+result);
+		console.log(i);
+             $scope.optionsList.push({value:result});	
+		//console.log("size of array: "+$scope.optionsList.length);	
+          if(i==5) {
+	     console.log($scope.optionsList);
+            $scope.flagShowing = true;
+            console.log("flag showing: "+ $scope.flagShowing);
+			
+            }   
+			$scope.$apply();
 	});
-      }
+
+      
+	}
+
   }
  
 
@@ -96,7 +105,7 @@ function mainCtrl ($scope, userFetcher) {
 
 }
 	
- $("#generateFlag").click(function() {
+$scope.generateFlag =function() {
            console.log("Key being pressed");
 
           var url = "../getrandomcountry";
@@ -110,14 +119,37 @@ function mainCtrl ($scope, userFetcher) {
             var countryCode = data[1].Code;
 
             console.log(countryCode);
-            console.log(countryName);
-            var url = "/images/"+countryCode.toLowerCase()+".png";
+//            console.log(countryName);
+            var imageUrl = "/images/"+countryCode.toLowerCase()+".png";
                 console.log(url);
-            $("#flagImage").html("<img src='"+url+"'>");
-             $("#countryName").html("<p>"+countryName+"</p>");
+	//CHECK IS URL EXISTS
+		$.ajax({
+		    type: 'HEAD',
+		    url: imageUrl,
+		success: function() {
+		        // page existsi
+			console.log("page exists!");
+			// $scope.$apply();
+		},
+		error: function() {
+        // page does not exist
+			 console.log("page DOES NOT exist!");
+			$scope.generateFlag();
+			 return;
+		}
+		});
+
+
+
+	/////////////
+		
+            $("#flagImage").html("<img id = 'mainImageFlag' src='"+imageUrl+"'>");
+             //$("#countryName").html("<p>"+$scope.countryName+"</p>");
 
 	    $scope.flagShowing=true;
 	    $scope.generateOptions();	
+	    $scope.$apply();
+
           })
           .done(function() { console.log('getJSON request succeeded!'); })
           .fail(function(jqXHR, textStatus, errorThrown) {
@@ -127,6 +159,24 @@ function mainCtrl ($scope, userFetcher) {
           .always(function() { console.log('getJSON request ended!');
           })
           .complete(function() { console.log("complete"); });
-        });
+        };
+    
+  $scope.checkAnswer =function(answer) {
+	console.log(answer);
+	console.log("real answer: " +$scope.countryName);
+       if(answer==$scope.countryName){
+		console.log("correct!");
+		$scope.generateFlag();
+	} 
+	else{
+	
+	console.log("INcorrect! TRY AGAIN");
+	}	
+	
+ 
 
-}
+   } ; 
+
+
+  }
+
