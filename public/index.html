@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+  <meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="./javascripts/script.js"></script>
+</head>
+<body>
+ <div id='app' ng-app='app' ng-controller='mainCtrl'>
+	<h1>Flag Game</h1>
+
+<div id = "gameWindow">
+	<button id="generateFlag" type="button" ng-click = "generateFlag()">Start Game</button>
+	<div id = "flagImage"></div>
+	<!--<div id = "countryName">{{countryName}}</div>-->
+   <h2>Which Country does this Flag belong to?</h2><br>
+   <ul  id='optionList'>
+      <li ng-repeat="option in optionsList | orderBy:'+value'" class='optionsList'>
+        <button class ='optionButton' type ="button"  ng-click = "checkAnswer(option.value)">{{option.value}}</button>
+      </li>
+    </ul>
+
+</div>
+
+
+
+
+
+<h1> Enter A New User</h1>
+  <form id="newUser" ng-submit="addUser()">
+    Name: <input type="text" ng-model="Name" value=""><br>
+    HighScore: <input type="number" ng-model="highScore" value=""><br>
+    CurrentScore: <input type="number" ng-model="currentScore" value=""><br>
+    <input type="submit" value="Submit">
+  </form>
+
+    <div ng-if='!user.length' class='no-user center stretch'>
+      <h1 class='h1'>
+        Set up your endpoint at `/user` to get this view working
+      </h1>
+    </div>
+
+    <ul ng-if='user.length' class='list center stretch'>
+      <li ng-repeat='p in user' class='user'>
+        <h1>{{ p.name }}</h1>
+	<h2>{{p.highScore}}</h2>
+	<h3>{{p.currentScore}}</h3>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+
+
+
+
+</html>
+
+

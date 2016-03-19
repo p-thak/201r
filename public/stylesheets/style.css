@@ -1,0 +1,85 @@
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: helvetica;
+}
+
+h1{
+ margin:auto;
+  text-align:center; 
+
+
+}
+#gameWindow{
+  
+  margin: auto;
+  max-width: 70%;
+
+
+
+}
+#flagImage{
+  max-width: 300px;
+  margin: auto;
+
+}
+#mainImageFlag{
+ margin:auto;
+ max-width: 300px;
+
+}
+.optionButton{
+  min-width: 200 px;
+ text-align: center;
+
+
+}
+#optionList{
+    margin: auto;
+    
+
+}
+
+div, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.stretch {
+  width: 100%;
+  height: 100%;
+}
+
+.no-pokemon {
+  background-color: #ED5565;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.h1 {
+  margin: 0;
+  color: white;
+}
+
+.user {
+  padding: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.list {
+  text-align: center;
+  list-style: none;
+  background-color: #4FC1E9;
+  color: white;
+}
